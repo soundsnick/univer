@@ -1,0 +1,79 @@
+public class LinkedList<T> {
+  private int size = 0;
+  private Node head;
+
+  @Override
+  public String toString(){
+    String res = "[";
+    Node cur = head;
+    while(cur != null) {
+        res = res + cur.value + ",";
+        cur = cur.next;
+
+    }
+    return res.substring(0,res.length()-1)+"]";
+  }
+
+  private class Node<T> {
+    private T value;
+    private Node next;
+
+    public Node(T value) {
+        this.value = value;
+    }
+
+    public Node(T value, Node next) {
+      this.value = value;
+      this.next = next;
+    }
+  }
+
+  public void push_second(T payload) {
+    if (head == null) {
+        head = new Node(payload);
+    } else {
+        head.next = new Node(payload, head.next);
+    }
+    size++;
+  }
+
+  public void pop_second() {
+    if (head == null || head.next == null) 
+      System.out.println("List is whether empty, or it contains single element");
+    head.next = head.next.next;
+    size--;
+  }
+
+  public T[] toArray() {
+    var array = new Object[size];
+    var current = head;
+    int i = 0;
+    while(current != null){
+      array[i] = current.value;
+      current = current.next;
+      i++;
+    }
+    return (T[]) array;
+  }
+
+  public void swap(int ind1, int ind2) {
+    if (ind1 < 0 || ind1 >= size || ind2 < 0 || ind2 >= size)
+      System.out.println("Error, out of index");
+    if (ind1 == ind2){
+      System.out.println("Am I joke to you? -.-");
+    }
+
+    var first = head;
+    for (var t = 0; t < ind1; t++) {
+        first = first.next;
+    }
+    var second = head;
+    for (var t = 0; t < ind2; t++) {
+        second = second.next;
+    }
+    var tmp = first.value;
+    first.value = second.value;
+    second.value = tmp;
+  }
+}
+

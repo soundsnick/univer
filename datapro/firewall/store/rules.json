@@ -1,0 +1,25 @@
+[
+    {
+        "source_address": "any",
+        "source_port": "any",
+        "destination_address": "10.10.10.10",
+        "destination_port": ">100",
+        "action": "allow",
+        "protocol": "UDP"
+    },
+    {
+        "source_address": "any",
+        "source_port": "any",
+        "destination_address": "any",
+        "destination_port": ">100",
+        "action": "deny",
+        "protocol": "UDP"
+    },
+    {
+        "source_address": "92.112.23.152",
+        "source_port": 3000, 
+        "destination_address": "124.31.1.15",
+        "destination_port": 80,
+        "action": "allow"
+    }
+]

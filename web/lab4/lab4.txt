@@ -1,0 +1,76 @@
+EXAMPLES:
+// 1. Copying
+const fs = require("fs");
+
+fs.copyFile('copyingFile.txt', 'folder/hello.txt', err => console.log(err || 'Mission complete!'));
+fs.copyFile('copyingFile.txt', 'folder/number_copy.txt', err => console.log(err || 'Mission complete!'));
+
+fs.readFile('./folder/number_copy.txt', 'utf8', (err, contents) => {
+    fs.writeFile("./folder/number_copy.txt", contents.split().map(n => n*n).join('\n'), (err) => err && console.log(err));
+});
+
+// 2. Deletion in loop
+const fs = require("fs");
+const fileArr = ["test.txt", "test2.txt", "test3.txt"];
+
+fileArr.map(n => fs.unlink(`folder/${n}`, err => console.log(err || "Mission complete")));
+
+// 3. Timer
+const fs = require("fs");
+
+const appendLine = (accumulator, newLine) => `${accumulator}\n${newLine}`;
+let interval; 
+let count = 0;
+
+fs.readFile('./folder/file.txt, 'utf8', (err, contents) => {
+    interval = setInterval(() => {
+        if(count >= 100) {
+            clearInterval(interval);
+            fs.writeFile('');
+        }
+        else {
+            fs.writeFile("./folder/readme.txt", appendLine(contents, count), (err) => err && console.log(err));
+            count++;
+        }
+    }, 1000)
+});
+
+
+ASSIGNMENT (OPTION 1):
+// task 1.
+const fs = require('fs');
+fs.stat("/IITU", (err,stats) => err ? console.log(err) : console.log("Info: ", stats));
+
+// task 2.
+const fs = require('fs');
+fs.stat("./folder", (err, stats) => console.log(`That folder will be created in ${stats.birthtime.getYear() + 1900}`));
+
+
+// task 3.
+const fs = require("fs");
+const stats = fs.statSync("readme.txt")
+const fileSizeInBytes = stats["size"]
+console.log(fileSizeInBytes);
+(fileSizeInBytes < 20) && console.log("File is too small");
+const fileSizeInMegabytes = fileSizeInBytes / 1000000.0;
+console.log(fileSizeInMegabytes);
+
+// task 4. 
+const fs = require('fs');
+const dir = './IITU';
+
+fs.readdir(dir, (err, files) => {
+    err && throw err;
+
+    files.map(n => console.log(n));
+});
+
+// task 5. 
+const fs = require('fs');
+const dir = '/home/yernazar';
+
+fs.readdir(dir, (err, files) => {
+    err && throw err;
+  
+    files.map(n => console.log(n));
+});

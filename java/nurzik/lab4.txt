@@ -1,0 +1,363 @@
+import java.util.Arrays;
+import java.util.Comparator;
+
+public class ArrayList<E> {
+    private int size;
+    private Object[] elementList;
+
+    public ArrayList() {
+        elementList = new Object[10];
+    }
+
+    @SafeVarargs
+    public ArrayList(E... payloadArray) {
+        elementList = Arrays.copyOf(payloadArray, payloadArray.length * 2);
+        size = payloadArray.length;
+    }
+
+    public int size() { return size; }
+
+    public void add(E payload) {
+        if (size == elementList.length) elementList = Arrays.copyOf(elementList, elementList.length*2);
+        elementList[size++] = payload;
+    }
+
+    public void add(int index, E payload) {
+        if (index < 0 || index > size) {
+            throw new ArrayIndexOutOfBoundsException("Wrong index");
+        }
+
+        Object[] tmp = Arrays.copyOfRange(elementList, index, size++);
+        for (Object n : tmp) elementList[++index] = n;
+        element[index - tmp.length] = payload;
+        if (size == elementList.length) elementList = Arrays.copyOf(elementList, elementList.length * 2);
+    }
+
+    
+
+    public void remove() {
+        if (size-1 >= 0) {
+            elementList = Arrays.copyOf(elementList, --size);
+            elementList = Arrays.copyOf(elementList, elementList.length);
+        }
+        else throw new ArrayIndexOutOfBoundsException("Wrong index");
+    }
+
+    public void remove(int index) {
+        if (index < 0 || index >= size) throw new ArrayIndexOutOfBoundsException("Wrong index");
+        for (int i = index; i < elementList.length - 1; i++) {
+            Object x = elementList[i];
+            elementList[i] = elementList[i+1];
+            elementList[i+1] = x;
+        }
+        size--;
+        elementList = Arrays.copyOf(elementList, elementList.length - 1);
+    }
+
+    public E get(int index) {
+        if(index < 0 || index >= size) throw new ArrayIndexOutOfBoundsException("Wrong index");
+        return (E) elementList[index];
+    }
+
+    public void set(int index,E payload) {
+        if(index < 0 || index >= size) throw new IllegalArgumentException("Wrong index");
+        elementList[index] = payload;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        ArrayList<?> comparedArrayList = (ArrayList<?>)o;
+        if (size == comparedArrayList.size) {
+            for (int i = 0; i < size; i++) if (!elementList[i].equals(comparedArrayList.elementList[i])) return false;
+            return true;
+        }
+        return false;
+    }
+
+    private int partitionArrayList(int l, int r, Comparator<E> comparator) {
+        Object p = elementList[l];
+        int i = l + 1;
+        for (int j = l + 1; j < r; j++) {
+            if (comparator.compare((E)elementList[j], (E)p) < 0) {
+                Object n = elementList[i];
+                elementList[i] = elementList[j];
+                elementList[j] = n;
+                i++;
+            }
+        }
+
+        Object n = elementList[i - 1];
+        elementList[i - 1] = elementList[l];
+        elementList[l] = n;
+        return i;
+    }
+
+    public void sort(int p, int l, Comparator<E> comparator) {
+        if (p < l) {
+            int q = partitionArrayList(p, l, comparator);
+            sort(p, q - 1, comparator);
+            sort(q, l, comparator);
+        }
+    }
+
+    public boolean contains(E value) {
+        if (value != null) {
+            for (int i = 0; i < size; i++) if (value.equals(elementList[i])) return true;
+        }
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        if (size > 0) {
+            StringBuilder stringBuilder = new StringBuilder("[");
+            for (int i = 0; i < size; i++) {
+                stringBuilder.append(elementList[i]).append(",");
+            }
+            stringBuilder.deleteCharAt(stringBuilder.length()-1);
+            return stringBuilder.append("]").toString();
+        }
+        return "[]";
+    }
+}
+
+public class DoubleLinkedList<E> {
+    private Node head;
+    private Node tail;
+    private int size;
+
+    public DoubleLinkedList() {}
+
+    @SafeVarargs
+    public DoubleLinkedList(E... initPayload) {
+        for (E value: initPayload) push_back(value);
+    }
+
+    public void pushBack(E payload) {
+        if (tail != null) {
+            Node temp = new Node(payload);
+            temp.prev = tail;
+            tail.next = temp;
+            tail = temp;
+        }
+        else {
+            tail = new Node(payload);
+            head = tail;
+        }
+        size++;
+    }
+
+    public void pushFront(E data) {
+        if (head == null) {
+            head = new Node(data);
+            tail = head;
+        }
+        else {
+            Node tmp = new Node(data);
+            head.prev = tmp;
+            temp.next = head;
+            head = tmp;
+        }
+        size++;
+    }
+
+    public int length() { return size; }
+
+    public E get(int index) {
+        if (index < 0 || index >= size) throw new IndexOutOfBoundsException("Wrong index");
+        E result = null;
+        if (size/2 >= index) {
+            int current = 0;
+            Node tmp = head;
+            while (tmp != null) {
+                if (current == index) {
+                    result = tmp.value;
+                    break;
+                }
+                current++;
+                tmp = tmp.next;
+            }
+        }
+        else {
+            int current = size - 1;
+            Node tmp = tail;
+            while (tmp != null) {
+                if (current == index) {
+                    result = tmp.value;
+                    break;
+                }
+                current--;
+                tmp = temp.prev;
+            }
+        }
+
+        return result;
+    }
+
+    public void add(E payload, int index) {
+        if (index < 0 || index >= size)
+            throw new IndexOutOfBoundsException("Wrong index");
+        if (index == 0) {
+            pushFront(payload);
+        }
+        else {
+            int i = size - 1;
+            pushBack(tail.value);
+            Node tmp = tail.prev;
+            E val = tmp.prev.value;
+            while (true) {
+                if (i == index) {
+                    tmp.value = payload;
+                    break;
+                }
+                tmp.value = val;
+                tmp = tmp.prev;
+                val = tmp.prev.value;
+                --i;
+            }
+        }
+    }
+
+    public void set(E payload, int index) {
+        if (index < 0 || index >= size) throw new IndexOutOfBoundsException("Wrong index");
+        if (size/2 >= index) {
+            int i = 0;
+            Node tmp = head;
+            while (tmp != null) {
+                if (i == index) {
+                    tmp.value = payload;
+                    break;
+                }
+                tmp = tmp.next;
+                i++;
+            }
+        }
+        else {
+            int i = size - 1;
+            Node tmp = tail;
+            while (tmp != null) {
+                if (i == index) {
+                    tmp.value = payload;
+                    break;
+                }
+                tmp = tmp.prev;
+                i--;
+            }
+        }
+    }
+
+    public boolean contains(E payload) {
+        Node tmp = head;
+        while (tmp != null) {
+            if (tmp.value.equals(payload)) return true;
+            temp = tmp.next;
+        }
+        return false;
+    }
+
+    public void popBack() {
+        if (tail == null || size < 1) {
+            throw new NullPointerException("List is Empty");
+        }
+        else {
+            Node tmp = tail.prev;
+            tail.prev = null;
+            if (tmp != null) {
+                tmp.next = null;
+                tail = tmp;
+                size--;
+            }
+            else {
+                popFront();
+            }
+        }
+    }
+
+    public void popFront() {
+        if (head == null || size < 1) {
+            throw new NullPointerException("List is Empty");
+        }
+        else {
+            Node tmp = head.next;
+            head.next = null;
+            if (tmp != null)
+                tmp.prev = null;
+            head = tmp;
+        }
+        size--;
+    }
+
+    public void remove(int index) {
+        if (index >= size || index < 0) throw new IndexOutOfBoundsException("Wrong index");
+        if (index == 0) {
+            popFront();
+        }
+        else if (index == size - 1) {
+            popBack();
+        }
+        else {
+            int i = 1;
+            Node current = head.next;
+            while (current != null) {
+                if (i++ == index) {
+                    Node previous = current.prev;
+                    Node next = current.next;
+                    previous.next = current.next;
+                    next.prev = current.prev;
+                    current.next = null;
+                    current.prev = null;
+                    break;
+                }
+                current = current.next;
+            }
+            size--;
+        }
+    }
+
+    public void clearAll() {
+        head = null;
+        tail = null;
+        size = 0;
+    }
+
+    @Override
+    public String toString(){
+        StringBuilder res = new StringBuilder("[");
+        Node cur = head;
+        while(cur != null) {
+            res.append(cur.value).append(",");
+            cur = cur.next;
+        }
+        return res.substring(0,res.length()-1)+"]";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+
+        if (obj == null) return false;
+
+        if (getClass() != obj.getClass()) return false;
+        DoubleLinkedList<E> otherlist = (DoubleLinkedList<E>) obj;
+        if (size == otherlist.size) {
+            for (int i = 0; i < size; i++) {
+                if (!otherlist.get(i).equals(get(i))) return false;
+            }
+            return true;
+        }
+        return false;
+    }
+
+    private class Node{
+        private E value;
+        private Node next;
+        private Node prev;
+
+        public Node(E value) {
+            this.value = value;
+        }
+    }
+}

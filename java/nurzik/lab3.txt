@@ -1,0 +1,715 @@
+==================================
+
+YERNAZAR KARABAYEV
+CS-1802K
+
+==================================
+P.S. ALL SOLUTIONS REPRESENTED AS A MAIN FUNCTION BODY, 
+     IF OTHER IS NOT INDICATED EXPLICITLY
+==================================
+
+1.
+List<String> Color = new ArrayList<String>();
+Color.add("Red");
+Color.add("Green");
+Color.add("Blue");
+System.out.println(Color);
+
+2. 
+List<String> Color = new ArrayList<String>();
+Color.add("Red");
+Color.add("Green");
+Color.add("Blue");
+System.out.println(Color);
+
+3.
+List<String> Color = new ArrayList<String>();
+Color.add("Red");
+Color.add("Green");
+Color.add("Blue");
+Color.add(0, "Fuchsia"); // Prepend
+System.out.println(Color);
+
+4.
+List<String> Color = new ArrayList<String>();
+Color.add("Red");
+Color.add("Green");
+String el = Color.get(1);
+System.out.println(el);
+
+Color.add("Blue");
+System.out.println(Color);
+
+5.
+List<String> Color = new ArrayList<String>();
+Color.add("Red");
+Color.add("Green");
+String el = Color.get(0);
+System.out.println(el);
+
+Color.add("Blue");
+System.out.println(Color);
+
+Color.set(1, "Fuchsia");
+System.out.println(Color);
+
+6.
+List<String> Color = new ArrayList<String>();
+Color.add("Red");
+Color.add("Green");
+String el = Color.get(0);
+System.out.println(el);
+
+Color.add("Blue");
+System.out.println(Color);
+
+Color.remove(2);
+System.out.println(Color);
+
+7.
+List<String> Color = new ArrayList<String>();
+Color.add("Red");
+Color.add("Green");
+Color.add("Blue");
+Color.add("Fuchsia");
+Color.add("Purple");
+Color.add("Brown");
+Color.add("Black");
+System.out.println(Color);
+for (int i = 0; i < Color.size(); i++) {
+    if(Color.get(i) == "Brown"){
+        System.out.println(Color.get(i));
+        break;
+    }
+}
+
+8.
+List<Integer> list = new ArrayList<>(List.of(10,9,8,7,6,5,4,3,2,1));
+int tmp;
+System.out.println(list);
+
+for(int j = 0 ; j < list.size();j++) {
+    for (int i = 0; i < list.size(); i++) {
+        if (i == list.size() - 1) {
+            break;
+        }
+        {
+            int el1 = list.get(i);
+            int el2 = list.get(i + 1);
+            if (el1 > el2) {
+                tmp = el2;
+                list.set(i + 1, el1);
+                list.set(i, el2);
+            }
+        }
+    }
+}
+System.out.println(list);
+
+9.
+List<String> Color = new ArrayList<String>();
+Color.add("Red");
+Color.add("Green");
+Color.add("Blue");
+Color.add("White");
+Color.add("Black");
+Color.add("Purple");
+Color.add("Fuchsia");
+System.out.println(Color);
+List<String> Color2 = new ArrayList<String>();
+for (int i = 0; i < Color.size(); i++) {
+    Color2.add(Color.get(i));
+}
+System.out.println(Color2);
+
+10.
+List<String> Color = new ArrayList<String>();
+Color.add("Red");
+Color.add("Black");
+Color.add("Blue");
+Color.add("WhiteBlue");
+Color.add("Red");
+Color.add("Yellow");
+Color.add("White");
+System.out.println(Color);
+Collections.shuffle(Color);
+System.out.println(Color);
+
+11.
+List<String> Color = new ArrayList<String>();
+Color.add("Blue");
+Color.add("Black");
+Color.add("DarkBlue");
+Color.add("WhiteBlue");
+Color.add("Red");
+Color.add("Yellow");
+Color.add("White");
+List<String> Color2 = new ArrayList<String>();
+for (int i = 0; i < Color.size(); i++) {
+    Color2.add(Color.get(i));
+}
+System.out.println(Color);
+int i = 0;
+int c = Color.size()-1;
+while (c >-1) {
+    Color.set(i,(Color2.get(c)));
+    i +=1;
+    c-=1;
+}
+System.out.println(Color);
+
+12.
+List<String> Color = new ArrayList<String>();
+Color.add("Red");
+Color.add("Green");
+Color.add("Blue");
+Color.add("White");
+Color.add("Black");
+Color.add("Yellow");
+Color.add("Fuchsia");
+List<String> Color2 = Color.subList(0, 3);
+System.out.println(Color);
+System.out.println(Color2);
+
+13.
+List<String> Color = new ArrayList<String>();
+Color.add("Red");
+Color.add("Green");
+Color.add("Blue");
+Color.add("White");
+Color.add("Black");
+Color.add("Yellow");
+Color.add("Fuchsia");
+List<String> Color2 = new ArrayList<String>();
+for (int i = 0; i < Color.size(); i++) Color2.add(Color.get(i)); 
+System.out.println(Color);
+System.out.println(Color2);
+boolean b = Color2.equals(Color);
+System.out.println(b);
+List<String> Color3 = Color.subList(0, 3);
+b = Color3.equals(Color);
+System.out.println(Color3);
+System.out.println(b);
+
+14.
+List<String> Color = new ArrayList<String>();
+Color.add("Red");
+Color.add("Green");
+Color.add("Blue");
+Color.add("White");
+Color.add("Black");
+Color.add("Yellow");
+Color.add("Fuchsia");
+Scanner in = new Scanner(System.in);
+System.out.println(Color);
+int a = in.nextInt();
+int b = in.nextInt();
+String temp = Color.get(a);
+Color.set(a,Color.get(b));
+Color.set(b,temp);
+System.out.println(Color);
+
+15.
+List<String> Color = new ArrayList<String>();
+List<String> Color2 = new ArrayList<String>();
+Color.add("Red");
+Color.add("Green");
+Color.add("Blue");
+Color.add("White");
+Color.add("Black");
+Color.add("Yellow");
+Color.add("Fuchsia");
+System.out.println(Color2);
+System.out.println(Color);
+List<String> Color3 = new ArrayList<String>();
+Color3.addAll(Color);
+Color3.addAll(Color2);
+System.out.println(Color3);
+
+16.
+List<String> Color = new ArrayList<String>();
+Color.add("Red");
+Color.add("Green");
+Color.add("Blue");
+Color.add("White");
+Color.add("Black");
+Color.add("Yellow");
+Color.add("Fuchsia");
+System.out.println(Color);
+List<String> Color2 = new ArrayList<String>();
+for (int i = 0; i < Color.size(); i++) Color2.add(Color.get(i));
+System.out.println(Color2);
+
+17.
+List<String> Color = new ArrayList<String>();
+Color.add("Red");
+Color.add("Green");
+Color.add("Blue");
+Color.add("White");
+Color.add("Black");
+Color.add("Yellow");
+Color.add("Fuchsia");
+System.out.println(Color);
+while(Color.size() != 0 ) Color.remove(0);
+System.out.println(Color);
+
+18.
+List<String> Color = new ArrayList<String>();
+Color.add("Red");
+Color.add("Green");
+Color.add("Blue");
+Color.add("White");
+Color.add("Black");
+Color.add("Yellow");
+Color.add("Fuchsia");
+String Answer = Color.isEmpty() ? "Yes" : "No" ;
+System.out.println(Answer);
+
+19.
+List<String> Color = new ArrayList<String>(30);
+Color.add("Red");
+Color.add("Green");
+Color.add("Blue");
+Color.add("White");
+Color.add("Black");
+Color.add("Yellow");
+Color.add("Fuchsia");
+System.out.println(Color);
+((ArrayList<String>) Color).trimToSize();
+System.out.println(Color);
+
+20.
+List<String> Color = new ArrayList<String>(50);
+Color.add("Red");
+Color.add("Green");
+Color.add("Blue");
+Color.add("White");
+Color.add("Black");
+Color.add("Yellow");
+Color.add("Fuchsia");
+System.out.println(Color);
+((ArrayList<String>) Color).trimToSize();
+((ArrayList<String>) Color).ensureCapacity(3);
+Color.add("White");
+Color.add("Pink");
+Color.add("Yellow");
+
+System.out.println(Color);
+
+21.
+Scanner in = new Scanner(System.in);
+List<String> Color = new ArrayList<String>(50);
+Color.add("Red");
+Color.add("Green");
+Color.add("Blue");
+Color.add("White");
+Color.add("Black");
+Color.add("Yellow");
+Color.add("Fuchsia");
+System.out.println(Color);
+int n = in.nextInt();
+String temp = Color.get(2);
+Color.set(2,Color.get(n));
+Color.set(n,temp);
+System.out.println(Color);
+
+22.
+Scanner in = new Scanner(System.in);
+List<String> Color = new ArrayList<String>(50);
+Color.add("Blue");
+Color.add("Black");
+Color.add("DarkBlue");
+Color.add("WhiteBlue");
+Color.add("Red");
+Color.add("Yellow");
+Color.add("White");
+System.out.println(Color);
+for(int i = 0 ; i < Color.size();i++) System.out.println(Color.get(i));
+        
+===================================================================================
+
+Java Collection: LinkedList Exercises 
+1.
+Scanner in = new Scanner(System.in);
+List<String> Color = new LinkedList<>();
+Color.add("Red");
+Color.add("Green");
+Color.add("Blue");
+Color.add("White");
+Color.add("Black");
+Color.add("Yellow");
+Color.add("Fuchsia");
+System.out.println(Color);
+Color.add(in.nextLine());
+System.out.println(Color);
+
+
+2.
+Scanner in = new Scanner(System.in);
+List<String> Color = new LinkedList<>();
+Color.add("Red");
+Color.add("Green");
+Color.add("Blue");
+Color.add("White");
+Color.add("Black");
+Color.add("Yellow");
+Color.add("Fuchsia");
+for(int i = 0 ; i < Color.size();i++) System.out.println(Color.get(i));
+System.out.println(Color);
+
+3.
+Scanner in = new Scanner(System.in);
+List<String> Color = new LinkedList<>();
+Color.add("Red");
+Color.add("Green");
+Color.add("Blue");
+Color.add("White");
+Color.add("Black");
+Color.add("Yellow");
+Color.add("Fuchsia");
+int n = in.nextInt();
+for(int i = n ; i < Color.size();i++) System.out.println(Color.get(i));
+System.out.println(Color);
+
+4.
+Scanner in = new Scanner(System.in);
+List<String> Color = new LinkedList<>();
+Color.add("Blue");
+Color.add("Black");
+Color.add("DarkBlue");
+Color.add("WhiteBlue");
+Color.add("Red");
+Color.add("Yellow");
+Color.add("White");
+for(int i = Color.size()-1 ; i >=0 ; i--) System.out.println(Color.get(i));
+System.out.println(Color);
+
+5.
+Scanner in = new Scanner(System.in);
+List<String> Color = new LinkedList<>();
+Color.add("Red");
+Color.add("Green");
+Color.add("Blue");
+Color.add("White");
+Color.add("Black");
+Color.add("Yellow");
+Color.add("Fuchsia");
+System.out.println(Color);
+Color.set(in.nextInt(),in.nextLine());
+System.out.println(Color);
+
+6.
+Scanner in = new Scanner(System.in);
+List<String> Color = new LinkedList<>();
+Color.add("Red");
+Color.add("Green");
+Color.add("Blue");
+Color.add("White");
+Color.add("Black");
+Color.add("Yellow");
+Color.add("Fuchsia");
+System.out.println(Color);
+Color.set(0,in.nextLine());
+Color.set(Color.size()-1,in.nextLine());
+System.out.println(Color);
+
+7.
+Scanner in = new Scanner(System.in);
+List<String> Color = new LinkedList<>();
+Color.add("Red");
+Color.add("Green");
+Color.add("Blue");
+Color.add("White");
+Color.add("Black");
+Color.add("Yellow");
+Color.add("Fuchsia");
+System.out.println(Color);
+Color.add(0, "Purple");
+System.out.println(Color);
+
+8.
+Scanner in = new Scanner(System.in);
+List<String> Color = new LinkedList<>();
+Color.add("Red");
+Color.add("Green");
+Color.add("Blue");
+Color.add("White");
+Color.add("Black");
+Color.add("Yellow");
+Color.add("Fuchsia");
+System.out.println(Color);
+Color.add("Purple");
+System.out.println(Color);
+
+9.
+Scanner in = new Scanner(System.in);
+List<String> Color = new LinkedList<>();
+Color.add("Red");
+Color.add("Green");
+Color.add("Blue");
+Color.add("White");
+Color.add("Black");
+Color.add("Yellow");
+Color.add("Fuchsia");
+System.out.println(Color);
+Color.add(in.nextInt(),in.nextLine());
+Color.add(in.nextInt(),in.nextLine());
+System.out.println(Color);
+
+10.
+Scanner in = new Scanner(System.in);
+List<String> Color = new LinkedList<>();
+Color.add("Red");
+Color.add("Green");
+Color.add("Blue");
+Color.add("White");
+Color.add("Black");
+Color.add("Yellow");
+Color.add("Fuchsia");
+System.out.println(Color);
+System.out.println(("First element " + Color.get(0)));
+System.out.println(("Last  element " + Color.get(Color.size()-1)));
+System.out.println(Color);
+
+11.
+Scanner in = new Scanner(System.in);
+List<String> Color = new LinkedList<>();
+Color.add("Red");
+Color.add("Green");
+Color.add("Blue");
+Color.add("White");
+Color.add("Black");
+Color.add("Yellow");
+Color.add("Fuchsia");
+System.out.println(Color);
+for(int i = 0 ; i < Color.size() ; i++) System.out.println(Color.get(i) +"  "+i);
+
+12.
+Scanner in = new Scanner(System.in);
+List<String> Color = new LinkedList<>();
+Color.add("Red");
+Color.add("Green");
+Color.add("Blue");
+Color.add("White");
+Color.add("Black");
+Color.add("Yellow");
+Color.add("Fuchsia");
+System.out.println(Color);
+int n = in.nextInt();
+for(int i = 0 ; i < Color.size() ; i++){
+    if(n == i) { Color.remove(i); }
+    System.out.println(Color.get(i) + "  " +i);
+}
+
+
+13.
+Scanner in = new Scanner(System.in);
+List<String> Color = new LinkedList<>();
+Color.add("Red");
+Color.add("Green");
+Color.add("Blue");
+Color.add("White");
+Color.add("Black");
+Color.add("Yellow");
+Color.add("Fuchsia");
+System.out.println(Color);
+Color.remove(0);
+Color.remove(Color.size()-1);
+for(int i = 0 ; i < Color.size() ; i++) System.out.println(Color.get(i) +"  "+i);
+
+14.
+Scanner in = new Scanner(System.in);
+List<String> Color = new LinkedList<>();
+Color.add("Blue");
+Color.add("Black");
+Color.add("DarkBlue");
+Color.add("WhiteBlue");
+Color.add("Red");
+Color.add("Yellow");
+Color.add("White");
+System.out.println(Color);
+Color.clear();
+System.out.println(Color);
+
+15.
+Scanner in = new Scanner(System.in);
+List<String> Color = new LinkedList<>();
+Color.add("Red");
+Color.add("Green");
+Color.add("Blue");
+Color.add("White");
+Color.add("Black");
+Color.add("Yellow");
+Color.add("Fuchsia");
+System.out.println(Color);
+int a = in.nextInt();
+int b = in.nextInt();
+String temp = Color.get(a);
+Color.set(a, Color.get(b));
+Color.set(b,temp);
+System.out.println(Color);
+
+16.
+Scanner in = new Scanner(System.in);
+List<String> Color = new LinkedList<>();
+Color.add("Red");
+Color.add("Green");
+Color.add("Blue");
+Color.add("White");
+Color.add("Black");
+Color.add("Yellow");
+Color.add("Fuchsia");
+System.out.println(Color);
+Collections.shuffle(Color);
+System.out.println(Color);
+
+17.
+Scanner in = new Scanner(System.in);
+List<String> Color = new LinkedList<>();
+List<String> Color2 = new LinkedList<>();
+List<String> Color3 = new LinkedList<>();
+Color.add("Red");
+Color.add("Green");
+Color.add("Blue");
+Color.add("White");
+Color.add("Black");
+Color.add("Yellow");
+Color.add("Fuchsia");
+System.out.println(Color);
+System.out.println(Color2);
+Color3.addAll(Color2);
+Color3.addAll(Color);
+
+18.
+Scanner in = new Scanner(System.in);
+List<String> Color = new LinkedList<>();
+List<String> Color2 = new LinkedList<>();
+Color.add("Blue");
+Color.add("Black");
+Color.add("DarkBlue");
+Color.add("WhiteBlue");
+Color.add("Red");
+Color.add("Yellow");
+Color.add("White");
+System.out.println(Color);
+for(int i = 0 ; i < Color.size();i++) Color2.add(Color.get(i));
+System.out.println(Color2);
+
+19.
+Scanner in = new Scanner(System.in);
+List<String> Color = new LinkedList<>();
+List<String> Color2 = new LinkedList<>();
+Color.add("Red");
+Color.add("Green");
+Color.add("Blue");
+Color.add("White");
+Color.add("Black");
+Color.add("Yellow");
+Color.add("Fuchsia");
+System.out.println(Color);
+System.out.println(Color.get(0));
+Color.remove(0);
+System.out.println(Color);
+
+20.
+Scanner in = new Scanner(System.in);
+List<String> Color = new LinkedList<>();
+List<String> Color2 = new LinkedList<>();
+Color.add("Red");
+Color.add("Green");
+Color.add("Blue");
+Color.add("White");
+Color.add("Black");
+Color.add("Yellow");
+Color.add("Fuchsia");
+System.out.println(Color);
+System.out.println(Color.get(0));
+System.out.println(Color);
+
+21.
+Scanner in = new Scanner(System.in);
+List<String> Color = new LinkedList<>();
+List<String> Color2 = new LinkedList<>();
+Color.add("Red");
+Color.add("Green");
+Color.add("Blue");
+Color.add("White");
+Color.add("Black");
+Color.add("Yellow");
+Color.add("Fuchsia");
+System.out.println(Color);
+System.out.println(Color.get(Color.size()-1));
+System.out.println(Color);
+
+22.
+Scanner in = new Scanner(System.in);
+List<String> Color = new LinkedList<>();
+Color.add("Red");
+Color.add("Green");
+Color.add("Blue");
+Color.add("White");
+Color.add("Black");
+Color.add("Yellow");
+Color.add("Fuchsia");
+String check = in.nextLine();
+System.out.println(Color);
+for(int i = 0 ; i < Color.size() ; i++) check == Color.get(i) ? System.out.println("This one is your element "+ Color.get(i)) : System.out.println("We don't have it");
+System.out.println(Color.get(Color.size()-1));
+System.out.println(Color);
+
+23.
+Scanner in = new Scanner(System.in);
+List<String> Color = new LinkedList<>();
+Color.add("Red");
+Color.add("Green");
+Color.add("Blue");
+Color.add("White");
+Color.add("Black");
+Color.add("Yellow");
+Color.add("Fuchsia");
+System.out.println(Color);
+List<String> arrayList = new ArrayList<>(Color);
+System.out.println(arrayList);
+
+24.
+Scanner in = new Scanner(System.in);
+List<String> Color = new LinkedList<>();
+List<String> Color2 = new LinkedList<>();
+Color.add("Red");
+Color.add("Green");
+Color.add("Blue");
+Color.add("White");
+Color.add("Black");
+Color.add("Yellow");
+Color.add("Fuchsia");
+System.out.println(Color);
+System.out.println(Color.equals(Color2));
+
+25.
+Scanner in = new Scanner(System.in);
+List<String> Color = new LinkedList<>();
+List<String> Color2 = new LinkedList<>();
+Color.add("Red");
+Color.add("Green");
+Color.add("Blue");
+Color.add("White");
+Color.add("Black");
+Color.add("Yellow");
+Color.add("Fuchsia");
+System.out.println(Color2.isEmpty());
+System.out.println(Color.isEmpty());
+
+26.
+Scanner in = new Scanner(System.in);
+List<String> Color = new LinkedList<>();
+List<String> Color2 = new LinkedList<>();
+Color.add("Red");
+Color.add("Green");
+Color.add("Blue");
+Color.add("White");
+Color.add("Black");
+Color.add("Yellow");
+Color.add("Fuchsia");
+System.out.println(Color);
+Color.set(in.nextInt(), in.nextLine());
+System.out.println(Color);

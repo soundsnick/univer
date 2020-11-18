@@ -1,0 +1,16 @@
+body {
+    background: #282828;
+    color: #fff;
+}
+header {
+    background: rgba(0,0,0,0.3);
+    color: rgb(127, 48, 253);
+    padding: 10px 0;
+}
+header a {
+    padding: 0 10px;
+}
+.container {
+    max-width: 900px;
+    margin: auto;
+}

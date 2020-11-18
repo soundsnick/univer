@@ -1,0 +1,50 @@
+import java.util.Scanner;
+import java.util.Queue; 
+import java.util.LinkedList; 
+
+class Main {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+    int test_amount = scanner.nextInt();
+    String[] res_arr = new String[test_amount];
+
+    for(int i = 0; i < test_amount; i++){
+      Queue<Integer> queue = new LinkedList<>();
+      int query_amount = Integer.parseInt(scanner.next());
+      String res = "Test case #"+(i+1)+": ";
+
+      for(int j = 0; j < query_amount; j++){
+        switch (scanner.next()) {
+            case "a":
+              queue.add(scanner.nextInt());
+              break;
+            case "b":
+              res += queue.isEmpty() ? "-1" : queue.poll() + " ";
+              break;
+            case "c":
+              res += queue.size() + " ";
+              break;
+            case "d":
+              res += queue.isEmpty() ? "-1" : queue.peek() + " ";
+              break;
+            case "e":
+              if (queue.isEmpty()) {
+                  res += (-1 + " ");
+              }
+              else {
+                  Queue<Integer> temp = new LinkedList<>(queue);
+                  while (temp.size() > 1)
+                      temp.poll();
+                  res += (temp.poll() + " ");
+              }
+              break;
+        }
+      }
+      res_arr[i] = res;
+    }
+    for(int k = 0; k < test_amount; k++){
+      System.out.println(res_arr[k]);
+    }
+  }
+}

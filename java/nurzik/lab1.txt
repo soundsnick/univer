@@ -1,0 +1,101 @@
+1)
+public int factorial(int n) {
+  return (n == 0) ? 1 : factorial(n - 1) * n;
+}
+
+2)
+public int bunnyEars(int bunnies) {
+  return bunnies * 2;
+}
+
+3)
+public int fibonacci(int n) {
+  return (n == 0) ? 0 : ((n == 1 || n == 2) ? 1 : fibonacci(n - 2) + fibonacci(n - 1));
+}
+
+4)
+public int bunnyEars2(int b) {
+  return (b == 0) ? 0 : (( b % 2 == 0) ? bunnyEars2(b-1)+3 : bunnyEars2(b-1)+2);
+}
+
+5)
+public int triangle(int r) {
+  return (r == 0) ? 0 : triangle(r-1)+r;
+}
+
+6)
+public int sumDigits(int n) {
+  return (n == 0) ? 0 : n%10+sumDigits(n/10);
+}
+
+7)
+public int count7(int n) {
+  return (n == 0) ? 0 : ((n%10 == 7) ? count7(n/10)+1 : count7(n/10));
+}
+
+8)
+public int count8(int n) {
+  return (n == 0) ? 0 : (
+    (n%10 == 8 && n/10%10 == 8) ? count8(n/10)+2 : (
+      (n%10 == 8) ? count8(n/10)+1 : count8(n/10)
+      )
+    );
+}
+
+9)
+public int powerN(int base, int n) {
+  return (n == 0) ? 1 : base * powerN(base, n-1);
+}
+
+10)
+public int countX(String s) {
+  return (s.length() == 0) ? 0 : (
+    (s.charAt(s.length()-1) == 'x' ? 1 + countX(s.substring(0, s.length() - 1)) : countX(s.substring(0, s.length() - 1)))
+    );
+}
+
+11)
+public int countHi(String s) {
+  int i = s.length();
+  return (i == 0) ? 0 : (
+    (s.charAt(--i)=='i' && i-1 >-1 && s.charAt(i-1)=='h') ? 1 + countHi(s.substring(0, i-1)) : countHi(s.substring(0, i))
+    );
+}
+
+12)
+public String changeXY(String s) {
+  int i = s.length();
+  return (i == 0) ? "" : (
+    s.charAt(i-1) == 'x' ? changeXY(s.substring(0,i-1)) + "y" : changeXY(s.substring(0,i-1))+s.charAt(i-1)
+    );
+}
+
+13)
+public String changePi(String s) {
+  int i = s.length();
+
+  return (i == 0) ? "" : (
+    (s.charAt(--i)=='i' && i >-1) ? (
+      s.charAt(i-1) == 'p' ? changePi(s.substring(0,i-1))+"3.14" : changePi(s.substring(0,i))+s.charAt(i)
+      ) : changePi(s.substring(0,i))+s.charAt(i)
+    );
+}
+
+14)
+public String noX(String s) {
+  int i = s.length();
+
+  return (i == 0) ? "" : (
+    (s.charAt(--i)=='x') ? noX(s.substring(0,i)) : noX(s.substring(0,i)) + s.charAt(i)
+    );
+}
+
+15)
+public boolean array6(int[] a, int i) {
+  
+  return (a.length == 0) ? false : (
+    (i == a.length) ? a[i-1] == 6 : (
+      (a[i] != 6) ? array6(a, i+1) : true
+      )
+    );
+}

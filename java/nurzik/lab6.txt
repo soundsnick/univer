@@ -1,0 +1,75 @@
+import java.io.*;
+import java.nio.CharBuffer;
+import java.util.*;
+
+public class Main {
+
+  public static void main(String[] args) throws IOException {
+    FileReader file = new FileReader("./input.txt");
+    String data = null;
+    Scanner input = new Scanner(file);
+    
+    int count = 0 ;
+    Stack<Car> que = new Stack<>();
+    Stack<Car> tmp = new Stack<>();
+
+    while(input.hasNextLine()){
+      data = input.nextLine();
+      String[] lineArr = data.split(" ");
+      if(lineArr[1].equals("in")){
+        if(count < 5){
+          count += 1 ;
+          que.push(new Car(lineArr[0]));
+        } else {
+          System.out.println(lineArr[0] + ", there is no enough space in parking ");
+        }
+      }
+      else if(lineArr[1].equals("out")){
+        while (!que.peek().getName().equals(lineArr[0])) {
+            tmp.push(que.pop());
+        }
+        System.out.println(que.peek());
+        que.pop();
+
+        while (tmp.size() != 0) {
+            tmp.peek().setMove(tmp.peek().getMove() + 1);
+            que.push(tmp.pop());
+        }
+        count -= 1;
+        if (que.size() == 0){
+            System.out.println("Parking is empty");
+        }
+      }
+    }
+    file.close();
+  }
+
+    
+}
+
+class Car {
+  String name;
+  int move;
+
+  public Car(String name) {
+    this.name = name;
+    move = 0;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setMove(int move) {
+    this.move = move;
+  }
+
+  public int getMove() {
+    return move;
+  }
+
+  @Override
+  public String toString() {
+    return name + " was moved " + move + " times";
+  }
+}

@@ -1,0 +1,296 @@
+1
+package com.company;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Map<String, String> Countries = new HashMap<>(Map.of("ES", "Spain", "GE", "Germany", "FR",
+                "France", "CN", "China", "US", "United States", "RU", "Russia",
+                "KZ", "Kazakhstan", "GB", "United Kingdom"));
+        Countries.putAll(Map.of("IN", "India", "BR", "Brazil", "SA", "South Africa"));
+    }
+}
+2
+package com.company;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Map<String, String> Countries = new HashMap<>(Map.of("ES", "Spain", "GE", "Germany", "FR",
+                "France", "CN", "China", "US", "United States", "RU", "Russia",
+                "KZ", "Kazakhstan", "GB", "United Kingdom"));
+        System.out.println(Countries.size());
+    }
+}
+
+3
+package com.company;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Map<String, String> Countries = new HashMap<>(Map.of("ES", "Spain", "GE", "Germany", "FR",
+                "France", "CN", "China", "US", "United States", "RU", "Russia",
+                "KZ", "Kazakhstan", "GB", "United Kingdom"));
+    }
+}
+
+4
+
+package com.company;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Map<String, String> Countries = new HashMap<>(Map.of("ES", "Spain", "GE", "Germany", "FR",
+                "France", "CN", "China", "US", "United States", "RU", "Russia",
+                "KZ", "Kazakhstan", "GB", "United Kingdom"));
+        for (var key: Countries.keySet()) {
+            Countries.remove(key);
+        }
+
+    }
+}
+
+
+5
+
+package com.company;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        Map<String, String> Countries = new HashMap<>(Map.of("ES", "Spain", "GE", "Germany", "FR",
+                "France", "CN", "China", "US", "United States", "RU", "Russia",
+                "KZ", "Kazakhstan", "GB", "United Kingdom"));
+        Countries.containsKey(in.nextLine());
+        Countries.containsValue(in.nextLine());
+
+    }
+}
+
+6
+
+package com.company;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        Map<String, String> Countries = new HashMap<>(Map.of("ES", "Spain", "GE", "Germany", "FR",
+                "France", "CN", "China", "US", "United States", "RU", "Russia",
+                "KZ", "Kazakhstan", "GB", "United Kingdom"));
+        Countries.containsKey(in.nextLine());
+
+    }
+}
+
+
+7
+
+
+package com.company;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        Map<String, String> Countries = new HashMap<>(Map.of("ES", "Spain", "GE", "Germany", "FR",
+                "France", "CN", "China", "US", "United States", "RU", "Russia",
+                "KZ", "Kazakhstan", "GB", "United Kingdom"));
+        Countries.containsValue(in.nextLine());
+
+    }
+}
+
+
+
+8
+
+package com.company;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        Map<String, String> Countries = new HashMap<>(Map.of("ES", "Spain", "GE", "Germany", "FR",
+                "France", "CN", "China", "US", "United States", "RU", "Russia",
+                "KZ", "Kazakhstan", "GB", "United Kingdom"));
+        System.out.println(Countries.entrySet());
+
+    }
+}
+
+9
+
+package com.company;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        Map<String, String> Countries = new HashMap<>(Map.of("ES", "Spain", "GE", "Germany", "FR",
+                "France", "CN", "China", "US", "United States", "RU", "Russia",
+                "KZ", "Kazakhstan", "GB", "United Kingdom"));
+        System.out.println(Countries.get(in.nextLine()));
+
+    }
+}
+
+10
+
+package com.company;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        Map<String, String> Countries = new HashMap<>(Map.of("ES", "Spain", "GE", "Germany", "FR",
+                "France", "CN", "China", "US", "United States", "RU", "Russia",
+                "KZ", "Kazakhstan", "GB", "United Kingdom"));
+        System.out.println(Countries.keySet());
+
+    }
+}
+
+11
+
+package com.company;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        Map<String, String> Countries = new HashMap<>(Map.of("ES", "Spain", "GE", "Germany", "FR",
+                "France", "CN", "China", "US", "United States", "RU", "Russia",
+                "KZ", "Kazakhstan", "GB", "United Kingdom"));
+        System.out.println(Countries.values());
+
+    }
+}
+
+12
+
+package com.company;
+
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        Map<String, String> Countries = new HashMap<>(Map.of("ES", "Spain", "GE", "Germany", "FR",
+                "France", "CN", "China", "US", "United States", "RU", "Russia",
+                "KZ", "Kazakhstan", "GB", "United Kingdom"));
+        SortedMap<String, String> Sorted = new TreeMap<>(Countries);
+        System.out.println(Countries.values());
+        System.out.println(Sorted);
+
+    }
+}
+
+
+13
+
+package com.company;
+
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        Map<String, String> Countries = new HashMap<>(Map.of("ES", "Spain", "GE", "Germany", "FR",
+                "France", "CN", "China", "US", "United States", "RU", "Russia",
+                "KZ", "Kazakhstan", "GB", "United Kingdom"));
+        SortedMap<String, String> Sorted = new TreeMap<>(Countries);
+        System.out.println(Sorted.firstKey());
+        System.out.println(Sorted.lastKey());
+
+    }
+}
+
+14
+
+package com.company;
+
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        Map<String, String> Countries = new HashMap<>(Map.of("ES", "Spain", "GE", "Germany", "FR",
+                "France", "CN", "China", "US", "United States", "RU", "Russia",
+                "KZ", "Kazakhstan", "GB", "United Kingdom"));
+        SortedMap<String, String> Sorted = new TreeMap<>(Countries);
+        System.out.println(Sorted.subMap(in.nextLine(),in.nextLine()));
+        System.out.println(Sorted.lastKey());
+
+    }
+}
+
+15
+
+package com.company;
+
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        Map<String, String> Countries = new HashMap<>(Map.of("ES", "Spain", "GE", "Germany", "FR",
+                "France", "CN", "China", "US", "United States", "RU", "Russia",
+                "KZ", "Kazakhstan", "GB", "United Kingdom"));
+        SortedMap<String, String> Sorted = new TreeMap<>(Collections.reverseOrder());
+        Sorted.putAll(Map.of("ES", "Spain", "GE", "Germany", "FR",
+                "France", "CN", "China", "US", "United States", "RU", "Russia",
+                "KZ", "Kazakhstan", "GB", "United Kingdom"));
+        System.out.println(Sorted);
+
+    }
+}
+
+
